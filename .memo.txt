@@ -1,0 +1,4 @@
+# scripts/dump_gpaw_hse_sr.py
+
+line 323
+phi_bj = np.fft.ifftn(np.fft.fftn(chi_bj) * Kk).real * dv # it should include imaginary, maybe
