@@ -71,6 +71,7 @@ def main():
     grad_mag = np.sqrt(np.maximum(1e-30, (grad**2).sum(axis=0)))
     phi = np.stack([rho, grad_mag, grad[0], grad[1], grad[2]], axis=0)  # (5,Nx,Ny,Nz)
 
+    print("[B]", B) # Why 6?
     # テンソル化
     psi = torch.from_numpy(np.stack([psi_r, psi_i], axis=1).astype(np.float32))   # (B,2,Nx,Ny,Nz)
     vref = torch.from_numpy(np.stack([vx_r, vx_i], axis=1).astype(np.float32))    # (B,2,Nx,Ny,Nz)

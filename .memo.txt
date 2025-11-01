@@ -1,4 +1,36 @@
-# scripts/dump_gpaw_hse_sr.py
+psi: wave function
+vxpsi: exchange operator
+
+X_psi: wave function
+X_phi: phi = rho, size of grad (|grad_rho|), grad_rho[0], grad_rho[1], grad_rho[2]
+Y_vpsi: teacher data of exchange operator
+
+band_MSE: difference of all bands between pred and ref
+gap_error: difference of homo and lumo between perd and ref
+lam: inner product of psi and vpsi, exchange operator
+
+# 1. scripts/make_si_traj.py
+
+# 2. scripts/dump_gpaw_hse_sr.py
+How to compute Kk
 
 line 323
 phi_bj = np.fft.ifftn(np.fft.fftn(chi_bj) * Kk).real * dv # it should include imaginary, maybe
+
+# 3. scripts/make_patches.py
+
+# 4. ml/train_monolith.py
+
+# 5. scf_unroll_eval.py
+line 74
+print("[B]", B) # Why 6?
+
+
+
+
+
+
+# 6. scripts/compare_gap.py
+
+# 7. scripts/compute_stats.py
+## needed for scripts/compute_gap.py above
